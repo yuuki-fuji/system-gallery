@@ -1,6 +1,6 @@
 import { client } from '../libs/client';
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 
 //SSG
 export const getStaticProps = async () => {
@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
 
 export default function Home({gallery}) {
   return (
-    <div>
+    <div className="font-bold">
       {gallery.map((gallery) => (
         <li key={gallery.id}>
           <Link href={`gallery/${gallery.id}`}>
