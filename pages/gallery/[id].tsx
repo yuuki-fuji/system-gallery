@@ -1,9 +1,15 @@
+import { GetStaticProps, GetStaticPaths } from 'next';
+import type { Gallery } from '../../types/gallery';
 import { client } from "../../libs/client";
 import styles from "../../styles/Home.module.scss";
 
+type Props = {
+  gallery: Gallery;
+};
+
 //SSG
-export const getStaticProps = async (context) => {
-  const id = context.params.id;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const id: any = context.params?.id;
   const data = await client.get({ endpoint: "gallery", contentId: id});
 
   return {
@@ -13,7 +19,7 @@ export const getStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.get({ endpoint: "gallery" });
 
   const paths = data.contents.map((content) => `/gallery/${content.id}`);
@@ -23,7 +29,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-export default function GalleryId({ gallery }) {
+export default function GalleryId({ gallery }: Props) {
   return (
       <main>
         <h1>{gallery.title}</h1>
