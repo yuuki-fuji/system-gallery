@@ -1,3 +1,4 @@
+import '../styles/reset.css'
 import '../styles/globals.scss'
 import type { AppProps } from 'next/app';
 import Header from '../components/Header';
@@ -5,8 +6,15 @@ import Header from '../components/Header';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Header />
-      <Component {...pageProps} />
+      <header className="text-gray-600 body-font bg-blue-500">
+        <Header />
+      </header>
+      <main>
+        <Component {...pageProps} />
+      </main>
+      <footer>
+
+      </footer>
     </>
   );
 }

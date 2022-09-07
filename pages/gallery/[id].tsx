@@ -1,5 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
-import type { Gallery } from '../../types/gallery';
+import type { Gallery } from '../../types/cms-types';
 import { client } from "../../libs/client";
 import styles from "../../styles/Home.module.scss";
 
@@ -31,10 +31,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export default function GalleryId({ gallery }: Props) {
   return (
-      <main>
+      <>
         <h1>{gallery.title}</h1>
         <p>{gallery.publishedAt}</p>
         <div dangerouslySetInnerHTML={{__html: `${gallery.body}`}}></div>
-      </main>
+      </>
   );
 }
