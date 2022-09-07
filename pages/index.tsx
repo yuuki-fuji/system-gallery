@@ -4,6 +4,7 @@ import type { Gallery } from '../types/cms-types'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
+import React from 'react'
 
 type Props = {
   gallerys: Array<Gallery>;
@@ -23,20 +24,18 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Home({gallerys}: Props) {
   return (
-    <div className="md:grid grid-cols-3 lg:grid-cols-3 gap-4">
-      <ul>
+    <div>
+      <ul className="md:grid grid-cols-3 lg:grid-cols-3 gap-4">
       {gallerys.map((gallery) => (
           <li key={gallery.id} className="">
             <Link href={`gallery/${gallery.id}`} passHref>
               <a>
-                <div>
-                  <Image 
+                  <img
                   src={gallery.thumbnail.url}
                   alt=""
                   className="object-contain"
                   />
                   <p>{gallery.title}</p>
-                </div>
               </a>
             </Link>
             <div className="px-6 pt-4 pb-2">
