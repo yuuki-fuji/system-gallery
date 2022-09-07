@@ -2,6 +2,7 @@ import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { client } from '../libs/client'
 import type { Gallery } from '../types/cms-types'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 
 type Props = {
@@ -23,13 +24,13 @@ export const getStaticProps: GetStaticProps = async () => {
 export default function Home({gallerys}: Props) {
   return (
     <div className="md:grid grid-cols-3 lg:grid-cols-3 gap-4">
+      <ul>
       {gallerys.map((gallery) => (
-        <ul>
           <li key={gallery.id} className="">
             <Link href={`gallery/${gallery.id}`} passHref>
               <a>
                 <div>
-                  <img 
+                  <Image 
                   src={gallery.thumbnail.url}
                   alt=""
                   className="object-contain"
@@ -46,8 +47,8 @@ export default function Home({gallerys}: Props) {
                 )}
             </div>
           </li>
-        </ul>
       ))}
+      </ul>
     </div>
   );
 }
