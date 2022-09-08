@@ -24,6 +24,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Home({gallerys}: Props) {
   return (
+    <>
     <div>
       <ul className="md:grid grid-cols-3 lg:grid-cols-3 gap-4">
       {gallerys.map((gallery) => (
@@ -33,7 +34,7 @@ export default function Home({gallerys}: Props) {
                   <img
                   src={gallery.thumbnail.url}
                   alt=""
-                  className="object-contain"
+                  className="object-cover h-[250px] shadow-2xl delay-150 hover:scale-x-105 hover:scale-y-105 hover:opacity-70"
                   />
                   <p>{gallery.title}</p>
               </a>
@@ -49,6 +50,7 @@ export default function Home({gallerys}: Props) {
       ))}
       </ul>
     </div>
+    </>
   );
 }
 
