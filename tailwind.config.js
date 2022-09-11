@@ -4,8 +4,7 @@ module.exports = {
   darkMode: false, // 'media' or 'class'
   purge: {
     content: [
-      "./components/**/*.{js,ts,jsx,tsx}",
-      "./pages/**/*.{js,ts,jsx,tsx}"
+      "./src/**/*.{js,ts,jsx,tsx}",
     ],
     options: {
       // https://purgecss.com/safelisting.html#patterns

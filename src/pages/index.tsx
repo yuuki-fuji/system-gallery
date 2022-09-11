@@ -1,9 +1,9 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
-import { client } from '../libs/client'
-import type { Gallery } from '../types/cms-types'
+import { client } from 'libs/client'
+import type { Gallery } from 'types/cms-types'
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
+import styles from 'styles/Home.module.scss'
 import React from 'react'
 
 type Props = {
@@ -13,7 +13,6 @@ type Props = {
 //SSG
 export const getStaticProps: GetStaticProps = async () => {
   const data = await client.get({endpoint: "gallery"})
-  console.log(data);
 
   return {
     props: {
@@ -51,6 +50,7 @@ export default function Home({gallerys}: Props) {
       </ul>
     </div>
     </>
+    
   );
 }
 

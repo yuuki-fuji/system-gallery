@@ -1,7 +1,7 @@
-import '../styles/reset.css'
-import '../styles/globals.scss'
+import 'styles/reset.css'
+import 'styles/globals.scss'
 import type { AppProps } from 'next/app';
-import Header from '../components/Header';
+import Header from 'components/Header';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

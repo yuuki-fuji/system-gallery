@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
-import type { Gallery } from '../../types/cms-types';
-import { client } from "../../libs/client";
-import styles from "../../styles/Home.module.scss";
+import type { Gallery } from 'types/cms-types';
+import { client } from "libs/client";
+import styles from "styles/Home.module.scss";
 
 type Props = {
   gallery: Gallery;
