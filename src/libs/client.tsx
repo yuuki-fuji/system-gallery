@@ -4,3 +4,4 @@ export const client = createClient({
   serviceDomain: "system-gallery",
   apiKey: process.env.API_KEY,
 });
+

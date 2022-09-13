@@ -14,11 +14,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-* {
-  box-sizing: border-box;
+#gallery a {
+  color: rgb(59 130 246 / var(--tw-bg-opacity));
+  text-decoration: underline;
 }
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -28,3 +27,23 @@ a {
     background: black;
   }
 }
+* {
+  box-sizing: border-box;
+}
+
+.twitter-tweet {
+  margin: 40px auto 0 auto;
+}
+
+
+
+//gallery
+#gallery h1{} 
+#gallery h2{} 
+#gallery h3{} 
+
+
+// BLOG
+#blog h1{}
+#blog h2{}
+#blog h3{}

@@ -6,6 +6,7 @@ export type Gallery = {
   revisedAt: string;
   title: string;
   body: string;
+  description: string;
   thumbnail: {
     url: string;
     height: number;

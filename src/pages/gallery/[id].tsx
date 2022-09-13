@@ -32,9 +32,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export default function GalleryId({ gallery }: Props) {
   return (
       <>
-        <h1>{gallery.title}</h1>
-        <p>{gallery.publishedAt}</p>
-        <div dangerouslySetInnerHTML={{__html: `${gallery.body}`}}></div>
+        <div id="gallery" className="">
+          <h1 className="text-2xl">{gallery.title}</h1>
+          {/* <p>{gallery.publishedAt}</p> */}
+          
+          <div className="pt-4 pb-2">
+                      {gallery.tag && (
+                        <span className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">
+                          #{gallery.tag}
+                        </span>
+                      )}
+          </div>
+          <div className="">
+                      <img
+                      src={gallery.thumbnail.url}
+                      alt=""
+                      className=""
+                      />
+          </div>
+
+          <div dangerouslySetInnerHTML={{__html: `${gallery.body}`}}></div>
+        </div>
       </>
   );
 }

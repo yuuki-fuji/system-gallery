@@ -22,29 +22,36 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default function Home({gallerys}: Props) {
+  
   return (
     <>
     <div>
       <ul className="md:grid grid-cols-3 lg:grid-cols-3 gap-4">
       {gallerys.map((gallery) => (
-          <li key={gallery.id} className="">
+          <li key={gallery.id} className="bg-white mb-[20px]">
             <Link href={`gallery/${gallery.id}`} passHref>
               <a>
-                  <img
-                  src={gallery.thumbnail.url}
-                  alt=""
-                  className="object-cover h-[250px] shadow-2xl delay-150 hover:scale-x-105 hover:scale-y-105 hover:opacity-70"
-                  />
-                  <p>{gallery.title}</p>
+                  <figure className="bg-gray-200">
+                    <img
+                    src={gallery.thumbnail.url}
+                    alt=""
+                    className="object-cover md:h-[250px] hover:opacity-70 p-[10px]"
+                    />
+                  </figure>
+                  <div className="pl-[20px] pt-[20px] pb-[10px]">
+                    <p className="">{gallery.title}</p>
+                    <p className="text-gray-500">- {gallery.description}</p>
+                    <div className="pt-4 pb-2">
+                      {gallery.tag && (
+                        gallery.tag.map((item,i) =>
+                          <span key={i}  className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">
+                            #{item}
+                          </span>)
+                      )}
+                   </div>
+                  </div>
               </a>
             </Link>
-            <div className="px-6 pt-4 pb-2">
-                {gallery.tag && (
-                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    #{gallery.tag}
-                  </span>
-                )}
-            </div>
           </li>
       ))}
       </ul>
@@ -53,4 +60,5 @@ export default function Home({gallerys}: Props) {
     
   );
 }
+
 
